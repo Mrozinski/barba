@@ -2,27 +2,22 @@ import pandas as pd
 import numpy as np
 import init.init as files
 import scr.logs as logs
+import scr.preProcessing as pre
+import scr.readFile as rf
 
-def readFile(fileName):
-	df=pd.DataFrame()
-	try:
-		df= pd.read_csv(fileName, sep='\s+', header=None, encoding='utf8')
-	except:
-		print("Error")
-		logs.onFileOpenError(fileName)
-		return df
-	else:
-		logs.onFileOpenSuccess(fileName)
-		return df
+
+
+def dupFullNumber(df):
+	return(df[df.duplicated(subset=['fullNumber'])])
 
 logs.onStart()
 
 for fileName in files.files:
-	df=readFile(fileName)
+	df=rf.readFile(fileName)
 	if df.empty:
 		print(fileName)
 	else:
 		print(fileName)
-		print(df.head())
+		print(pre.toSmallDf(df).head())
 
 logs.onExit()

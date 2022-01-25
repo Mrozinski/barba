@@ -15,3 +15,5 @@ dupFile = "dups"
 
 # Tablica przechowująca nazwy plików logów:
 logDir = "log/"
+logFile = "logs.log"
+readFileReport = "report"
