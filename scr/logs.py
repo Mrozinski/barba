@@ -57,14 +57,14 @@ def onFileOpenSuccess(fileName, msg="Opening the file successful"):
 		f.write(f'{time} {msg}: {fileName}\n')
 		f.close()
 
-def fileReadReport(filename, records=0, time=0, msg="file opening report:", msg2="records readed"):
+def fileReadReport(filename, records=0, dTime=0, msg="file opening report:", msg2="records readed"):
 	dirCheck(files.reportDir)
 	time=datetime.now().strftime(files.timeFormat)
 	f=open(reportFile+time,"w")
 	f.write(f'{filename} {msg}\n')
 	f.write(f'{records} {msg2}\n')
-	f.write(f'Duration: {time} s\n')
+	f.write(f'Duration: {dTime} s\n')
 	f.close()
 
 def logTime(funName, time):
-	writeToLogFile(f'{funName} duration{time} ')
+	writeToLogFile(f'{funName} duration {time} ')

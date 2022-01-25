@@ -15,5 +15,5 @@ def readFile(fileName):
 		return df
 	else:
 		logs.onFileOpenSuccess(fileName); 
-		logs.fileReadReport(fileName, records=df.shape[0], time=duration)
+		logs.fileReadReport(fileName, records=df.shape[0], dTime=duration)
 		return df

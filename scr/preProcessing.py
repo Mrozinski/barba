@@ -16,7 +16,7 @@ def toSmallDf(df):
 	dfTemp['id']=dfTemp.apply(lambda x: x.fullNumber[4:], axis=1)
 	end = time.time()
 	duration = end-start
-	logs.logTime(__name__, duration)
+	logs.logTime(toSmallDf.__name__, duration)
 	return dfTemp
 
 # Funkcja pobiera numer osobnika posiadający 16 znaków 
