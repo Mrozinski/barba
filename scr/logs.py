@@ -66,5 +66,12 @@ def fileReadReport(filename, records=0, acTime=0,  dTime=0, msg="file opening re
 	f.write(f'Duration: {dTime} s\n')
 	f.close()
 
+def filePreReport( funName, acTime=0,  dTime=0):
+	dirCheck(files.reportDir)
+	time=acTime.strftime(files.timeFormat)
+	f=open(reportFile+time,"a")
+	f.write(f'{funName} Duration: {dTime} s\n')
+	f.close()
+
 def logTime(funName, time):
 	writeToLogFile(f'{funName} duration {time} ')

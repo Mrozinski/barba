@@ -12,8 +12,8 @@ def readFile(fileName):
 	except:
 		print("Error")
 		logs.onFileOpenError(fileName)
-		return df
+		return df, start
 	else:
 		logs.onFileOpenSuccess(fileName); 
 		logs.fileReadReport(fileName, records=df.shape[0], acTime=start, dTime=duration)
-		return df
+		return df, start

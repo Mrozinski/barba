@@ -12,11 +12,11 @@ def dupFullNumber(df):
 logs.onStart()
 
 for fileName in files.files:
-	df=rf.readFile(fileName)
+	df,acTime=rf.readFile(fileName)
 	if df.empty:
 		print(fileName)
 	else:
 		print(fileName)
-		print(pre.toSmallDf(df).head())
+		print(pre.toSmallDf(df, acTime).head())
 
 logs.onExit()
