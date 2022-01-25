@@ -1,7 +1,7 @@
 import pandas as pd
 import time
 
-import logs as logs
+import scr.logs as logs
 
 # Funkcja przyjmuje jako argument DataFrame
 # wynikiem działania jest pełen numer oryginalny 
