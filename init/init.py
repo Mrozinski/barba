@@ -13,7 +13,10 @@ workingDir = "work"
 outFile = "results"
 dupFile = "dups"
 
-# Tablica przechowująca nazwy plików logów:
+# Zmienne przechowujące nazwy plików logów:
 logDir = "log/"
 logFile = "logs.log"
+
+# Zmienne przechowujące nazwy plików raportów:
+reportDir = "rep/"
 readFileReport = "report"

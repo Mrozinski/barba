@@ -5,8 +5,6 @@ import scr.logs as logs
 import scr.preProcessing as pre
 import scr.readFile as rf
 
-
-
 def dupFullNumber(df):
 	return(df[df.duplicated(subset=['fullNumber'])])
 

@@ -1,4 +1,9 @@
 import pandas as pd
+
+# Funkcja przyjmuje jako argument DataFrame
+# wynikiem działania jest pełen numer oryginalny 
+# oraz jego składowe jako oddzielne kolumny
+
 def toSmallDf(df):
 	dfTemp=pd.DataFrame(columns=['fullNumber', 'sex','country', 'id'])
 	dfTemp['fullNumber']=df.iloc[:,0]
@@ -6,6 +11,12 @@ def toSmallDf(df):
 	dfTemp['country']=dfTemp.apply(lambda x: x.fullNumber[1:4], axis=1)
 	dfTemp['id']=dfTemp.apply(lambda x: x.fullNumber[4:], axis=1)
 	return dfTemp
+
+# Funkcja pobiera numer osobnika posiadający 16 znaków 
+# w rezultacie zwraca 3 wartości w foracie string:
+# sex - 1 znak
+# countryCode - 3 znaki 
+# id - 12 znaków 
 
 def splitID(fullNumber):
 	sex = fullNumber[0]
