@@ -15,7 +15,7 @@ def toSmallDf(df):
 	dfTemp['country']=dfTemp.apply(lambda x: x.fullNumber[1:4], axis=1)
 	dfTemp['id']=dfTemp.apply(lambda x: x.fullNumber[4:], axis=1)
 	end = time.time()
-	duration = end-start
+	duration = round(end-start,2)
 	logs.logTime(toSmallDf.__name__, duration)
 	return dfTemp
 

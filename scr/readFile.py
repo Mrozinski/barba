@@ -8,7 +8,7 @@ def readFile(fileName):
 	try:
 		df= pd.read_csv(fileName, sep='\s+', header=None, encoding='utf8')
 		end = time.time()
-		duration=end-start
+		duration=round(end-start,2)
 	except:
 		print("Error")
 		logs.onFileOpenError(fileName)
