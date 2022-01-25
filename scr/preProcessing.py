@@ -7,7 +7,7 @@ import scr.logs as logs
 # wynikiem działania jest pełen numer oryginalny 
 # oraz jego składowe jako oddzielne kolumny
 
-def toSmallDf(df, acTime):
+def toSmallDf(df):
 	start = time.time()
 	dfTemp=pd.DataFrame(columns=['fullNumber', 'sex','country', 'id'])
 	dfTemp['fullNumber']=df.iloc[:,0]
@@ -15,9 +15,8 @@ def toSmallDf(df, acTime):
 	dfTemp['country']=dfTemp.apply(lambda x: x.fullNumber[1:4], axis=1)
 	dfTemp['id']=dfTemp.apply(lambda x: x.fullNumber[4:], axis=1)
 	end = time.time()
-	duration = round(end-start,2)
+	duration = end-start
 	logs.logTime(toSmallDf.__name__, duration)
-	logs.filePreReport(toSmallDf.__name__, acTime, duration)
 	return dfTemp
 
 # Funkcja pobiera numer osobnika posiadający 16 znaków 
