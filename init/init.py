@@ -20,3 +20,4 @@ logFile = "logs.log"
 # Zmienne przechowujące nazwy plików raportów:
 reportDir = "rep/"
 readFileReport = "report"
+timeFormat="%Y-%m-%d_%H_%M_%S"

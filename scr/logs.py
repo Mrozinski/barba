@@ -1,4 +1,7 @@
 from datetime import datetime 
+from pathlib import Path
+
+# Własny plik ninicjujący zmienne konfiguracyjne 
 import init.init as files
 
 # Zmienna logFile zapisuje informacje na temat miejsca przechowywania
@@ -15,32 +18,41 @@ logFile=files.logDir+files.logFile
 # files.readFileReport - oznacza nazwę pliku, zadeklarowana w pliku init/init.py
 reportFile=files.reportDir+files.readFileReport
 
+def dirCheck(dirPath):
+	Path(dirPath).mkdir(parents=True, exist_ok=True)
+	return True
+
 def onStart(msg="launching the application"):
+	dirCheck(files.logDir)
 	f=open(logFile, "a")
 	time=datetime.now()
 	f.write(f'{time} {msg} \n')
 	f.close()
 
 def onFileOpenError(fileName, msg="Error opening the file"):
+	dirCheck(files.logDir)
 	f=open(logFile, "a")
 	time=datetime.now()
 	f.write(f'{time} {msg}: {fileName}\n')
 	f.close()
 
 def onExit(msg="Close the program"):
+	dirCheck(files.logDir)
 	f=open(logFile, "a")
 	time=datetime.now()
 	f.write(f'{time} {msg}\n')
 	f.close()
 
 def onFileOpenSuccess(fileName, msg="Opening the file successful"):
-        f=open(logFile, "a")
-        time=datetime.now()
-        f.write(f'{time} {msg}: {fileName}\n')
-        f.close()
+		dirCheck(files.logDir)
+		f=open(logFile, "a")
+		time=datetime.now()
+		f.write(f'{time} {msg}: {fileName}\n')
+		f.close()
 
 def fileReadReport(filename, records=0, msg="file opening report:", msg2="records readed"):
-	time=datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
+	dirCheck(files.reportDir)
+	time=datetime.now().strftime(files.timeFormat)
 	f=open(reportFile+time,"w")
 	f.write(f'{filename} {msg}\n')
 	f.write(f'{records} {msg2}\n')
