@@ -18,6 +18,13 @@ logFile=files.logDir+files.logFile
 # files.readFileReport - oznacza nazwę pliku, zadeklarowana w pliku init/init.py
 reportFile=files.reportDir+files.readFileReport
 
+def writeToLogFile(msg):
+	dirCheck(files.logDir)
+	f=open(logFile, "a")
+	time=datetime.now()
+	f.write(f'{time} {msg} \n')
+	f.close()
+
 def dirCheck(dirPath):
 	Path(dirPath).mkdir(parents=True, exist_ok=True)
 	return True
@@ -50,10 +57,14 @@ def onFileOpenSuccess(fileName, msg="Opening the file successful"):
 		f.write(f'{time} {msg}: {fileName}\n')
 		f.close()
 
-def fileReadReport(filename, records=0, msg="file opening report:", msg2="records readed"):
+def fileReadReport(filename, records=0, time=0, msg="file opening report:", msg2="records readed"):
 	dirCheck(files.reportDir)
 	time=datetime.now().strftime(files.timeFormat)
 	f=open(reportFile+time,"w")
 	f.write(f'{filename} {msg}\n')
 	f.write(f'{records} {msg2}\n')
+	f.write(f'Duration: {time} s\n')
 	f.close()
+
+def logTime(funName, time):
+	writeToLogFile(f'{funName} duration{time} ')
