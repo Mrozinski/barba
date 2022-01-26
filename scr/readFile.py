@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import time
 import scr.logs as logs
+import dask as dd
 
 def readFile(fileName):
 	start = time.time()
@@ -20,7 +21,6 @@ def readFile(fileName):
 		return df
 
 def file_name(fileName):
-	print(fileName[fileName.rindex("/")+1:])
 	return fileName[fileName.rindex("/")+1:]
 
 def readFile2(fileName):
@@ -38,4 +38,20 @@ def readFile2(fileName):
 	else:
 		logs.onFileOpenSuccess(fileName); 
 		logs.fileReadReport(file_name(fileName), records=df.shape[0], dTime=duration)
+		return df
+
+def readFile3(fileName):
+	start = time.time()
+	df=dd.DataFrame()
+	try:
+		df= dd.read_csv(fileName, sep='\s+', header=None, encoding='utf8')
+		end = time.time()
+		duration=round(end-start,2)
+	except:
+		print("Error")
+		logs.onFileOpenError(fileName)
+		return df
+	else:
+		logs.onFileOpenSuccess(fileName); 
+		logs.fileReadReport(fileName, records=df.shape[0], dTime=duration)
 		return df

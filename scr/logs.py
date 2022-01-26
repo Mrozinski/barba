@@ -64,7 +64,6 @@ def fileReadReport(filename, records=0, dTime=0, msg="file opening report:", msg
 	f.write(f'{filename} {msg}\n')
 	f.write(f'{records} {msg2}\n')
 	f.write(f'Duration: {dTime} s\n')
-	print(filename)
 	f.close()
 
 def logTime(funName, time):
