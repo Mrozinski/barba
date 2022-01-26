@@ -17,6 +17,7 @@ for fileName in files.files:
 		print('error')
 	else:
 		print(fileName)
+		print(df.head())
 		#print(pre.toSmallDf(df).head())
 		#print(pre.toSmallDf2(df).head())
 		#print(pre.toSmallDf3(df).head())

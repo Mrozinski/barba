@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import time
 import scr.logs as logs
 
@@ -22,7 +23,8 @@ def readFile2(fileName):
 	start = time.time()
 	df=pd.DataFrame()
 	try:
-		df= pd.read_csv(fileName, header=None, encoding='utf8')
+		array = np.loadtxt(fileName, dtype='str')
+		df= pd.DataFrame(array)
 		end = time.time()
 		duration=round(end-start,2)
 	except:
