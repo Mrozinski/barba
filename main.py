@@ -12,7 +12,7 @@ def dupFullNumber(df):
 logs.onStart()
 
 for fileName in files.files:
-	df=rf.readFile2(fileName)
+	df=rf.readFile3(fileName)
 	if df.empty:
 		print('error')
 	else:
