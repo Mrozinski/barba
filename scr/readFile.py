@@ -20,6 +20,7 @@ def readFile(fileName):
 		return df
 
 def file_name(fileName):
+	print(fileName[fileName.rindex("/")+1:])
 	return fileName[fileName.rindex("/")+1:]
 
 def readFile2(fileName):
