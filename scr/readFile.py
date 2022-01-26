@@ -43,6 +43,7 @@ def readFile2(fileName):
 def readFile3(fileName):
 	start = time.time()
 	#df=dd.DataFrame()
+	print(fileName)
 	try:
 		df= dd.read_csv(fileName)
 		end = time.time()
