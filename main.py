@@ -14,7 +14,7 @@ logs.onStart()
 for fileName in files.files:
 	df=rf.readFile2(fileName)
 	if df.empty:
-		print(fileName)
+		print('error')
 	else:
 		print(fileName)
 		#print(pre.toSmallDf(df).head())
