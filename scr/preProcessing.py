@@ -29,9 +29,21 @@ def toSmallDf2(df):
 		row["id"]=row["fullNumber"][4:]
 	end = time.time()
 	duration = end-start
-	logs.logTime(toSmallDf.__name__, duration)
+	logs.logTime(toSmallDf2.__name__, duration)
 	return dfTemp
 
+def toSmallDf3(df):
+	start = time.time()
+	dfTemp=pd.DataFrame(columns=['fullNumber', 'sex','country', 'id'])
+	dfTemp['fullNumber']=df.iloc[:,0]
+	for  row in dfTemp.itertuples():
+		row.sex=row.fullNumber[0]
+		row.country=row.fullNumber[1:4]
+		row.id=row.fullNumber[4:]
+	end = time.time()
+	duration = end-start
+	logs.logTime(toSmallDf3.__name__, duration)
+	return dfTemp
 # Funkcja pobiera numer osobnika posiadający 16 znaków 
 # w rezultacie zwraca 3 wartości w foracie string:
 # sex - 1 znak
