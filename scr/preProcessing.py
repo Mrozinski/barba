@@ -36,7 +36,7 @@ def toSmallDf3(df):
 	start = time.time()
 	dfTemp=pd.DataFrame(columns=['fullNumber', 'sex','country', 'id'])
 	dfTemp['fullNumber']=df.iloc[:,0]
-	for  line, row in dfTemp.itertuples():
+	for  row in dfTemp.itertuples():
 		dfTemp.set_value(row.index,"sex",row.fullNumber[0])
 		dfTemp.set_value(row.index,"country",row.fullNumber[1:4])
 		dfTemp.set_value(row.index,"id",row.fullNumber[4:])
