@@ -17,7 +17,7 @@ def readFile(fileName):
 		return df
 	else:
 		logs.onFileOpenSuccess(fileName); 
-		logs.fileReadReport(file_name(fileName)+'pandas', records=df.shape[0].compute(), dTime=duration)
+		logs.fileReadReport(file_name(fileName)+'pandas', records=df.shape[0], dTime=duration)
 		return df
 
 def file_name(fileName):
