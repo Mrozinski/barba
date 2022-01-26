@@ -19,6 +19,9 @@ def readFile(fileName):
 		logs.fileReadReport(fileName, records=df.shape[0], dTime=duration)
 		return df
 
+def file_name(fileName):
+	return fileName[fileName.rindex("/"):]
+
 def readFile2(fileName):
 	start = time.time()
 	df=pd.DataFrame()
@@ -33,5 +36,5 @@ def readFile2(fileName):
 		return df
 	else:
 		logs.onFileOpenSuccess(fileName); 
-		logs.fileReadReport(fileName, records=df.shape[0], dTime=duration)
+		logs.fileReadReport(file_name(fileName), records=df.shape[0], dTime=duration)
 		return df
