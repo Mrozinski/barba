@@ -36,10 +36,10 @@ def toSmallDf3(df):
 	start = time.time()
 	dfTemp=pd.DataFrame(columns=['fullNumber', 'sex','country', 'id'])
 	dfTemp['fullNumber']=df.iloc[:,0]
-	for  row in dfTemp.itertuples():
-		row.sex=row.fullNumber[0]
-		row.country=row.fullNumber[1:4]
-		row.id=row.fullNumber[4:]
+	for  line, row in dfTemp.itertuples():
+		dfTemp.set_value(row.index,"sex",row.fullNumber[0])
+		dfTemp.set_value(row.index,"country",row.fullNumber[1:4])
+		dfTemp.set_value(row.index,"id",row.fullNumber[4:])
 	end = time.time()
 	duration = end-start
 	logs.logTime(toSmallDf3.__name__, duration)

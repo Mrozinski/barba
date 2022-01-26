@@ -17,8 +17,8 @@ for fileName in files.files:
 		print(fileName)
 	else:
 		print(fileName)
-		print(pre.toSmallDf(df).head())
-		print(pre.toSmallDf2(df).head())
+		#print(pre.toSmallDf(df).head())
+		#print(pre.toSmallDf2(df).head())
 		print(pre.toSmallDf3(df).head())
 
 logs.onExit()
