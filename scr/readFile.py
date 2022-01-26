@@ -20,7 +20,7 @@ def readFile(fileName):
 		return df
 
 def file_name(fileName):
-	return fileName[fileName.rindex("/"):]
+	return fileName[fileName.rindex("/")+1:]
 
 def readFile2(fileName):
 	start = time.time()

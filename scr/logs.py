@@ -60,7 +60,7 @@ def onFileOpenSuccess(fileName, msg="Opening the file successful"):
 def fileReadReport(filename, records=0, dTime=0, msg="file opening report:", msg2="records readed"):
 	dirCheck(files.reportDir)
 	time=datetime.now().strftime(files.timeFormat)
-	f=open(filename+time,"a")
+	f=open(filename+"_"+time,"a")
 	f.write(f'{filename} {msg}\n')
 	f.write(f'{records} {msg2}\n')
 	f.write(f'Duration: {dTime} s\n')
