@@ -13,7 +13,7 @@ logs.onStart()
 
 for fileName in files.files:
 	df=rf.readFile3(fileName)
-	if df.empty:
+	if len(df.index) == 0
 		print('error')
 	else:
 		print(fileName)
