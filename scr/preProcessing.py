@@ -36,11 +36,23 @@ def toSmallDf3(df):
 	start = time.time()
 	dfTemp=pd.DataFrame(columns=['fullNumber', 'sex','country', 'id'])
 	dfTemp['fullNumber']=df.iloc[:,0]
-	for line, row in enumerate(dfTemp.itertuples(),1):
-		if row.fullNumber:
-			dfTemp.at[line,'sex']=1
-			dfTemp.at[line,'country']=1
-			dfTemp.at[line,'id']=1
+	for line, row in enumerate(dfTemp.itertuples(),0):
+		dfTemp.at[line,'sex']=row.fullNumber[0]
+		dfTemp.at[line,'country']=row.fullNumber[1:4]
+		dfTemp.at[line,'id']=row.fullNumber[4:]
+	end = time.time()
+	duration = end-start
+	logs.logTime(toSmallDf3.__name__, duration)
+	return dfTemp
+
+def toSmallDf4(df):
+	start = time.time()
+	dfTemp=pd.DataFrame(columns=['fullNumber', 'sex','country', 'id'])
+	dfTemp['fullNumber']=df.iloc[:,0]
+	for row in df.values:
+		row["sex"]=row["fullNumber"][0]
+		row["country"]=row["fullNumber"][1:4]
+		row["id"]=row["fullNumber"][4:]
 	end = time.time()
 	duration = end-start
 	logs.logTime(toSmallDf3.__name__, duration)
