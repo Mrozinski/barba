@@ -38,9 +38,9 @@ def toSmallDf3(df):
 	dfTemp['fullNumber']=df.iloc[:,0]
 	for line, row in enumerate(dfTemp.itertuples(),1):
 		if row.fullNumber:
-			dfTemp.at[row.index,'sex']=1
-			dfTemp.at[row.index,'country']=1
-			dfTemp.at[row.index,'id']=1
+			dfTemp.at[line'sex']=1
+			dfTemp.at[line'country']=1
+			dfTemp.at[line,'id']=1
 	end = time.time()
 	duration = end-start
 	logs.logTime(toSmallDf3.__name__, duration)
