@@ -55,7 +55,7 @@ def toSmallDf4(df):
 		row["id"]=row["fullNumber"][4:]
 	end = time.time()
 	duration = end-start
-	logs.logTime(toSmallDf3.__name__, duration)
+	logs.logTime(toSmallDf4.__name__, duration)
 	return dfTemp
 # Funkcja pobiera numer osobnika posiadający 16 znaków 
 # w rezultacie zwraca 3 wartości w foracie string:

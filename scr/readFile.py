@@ -17,3 +17,19 @@ def readFile(fileName):
 		logs.onFileOpenSuccess(fileName); 
 		logs.fileReadReport(fileName, records=df.shape[0], dTime=duration)
 		return df
+
+def readFile2(fileName):
+	start = time.time()
+	df=pd.DataFrame()
+	try:
+		df= pd.read_csv(fileName, header=None, encoding='utf8')
+		end = time.time()
+		duration=round(end-start,2)
+	except:
+		print("Error")
+		logs.onFileOpenError(fileName)
+		return df
+	else:
+		logs.onFileOpenSuccess(fileName); 
+		logs.fileReadReport(fileName, records=df.shape[0], dTime=duration)
+		return df
