@@ -19,6 +19,7 @@ for fileName in files.files:
 	else:
 		print(fileName)
 		print(df.head())
+		print(df2.head())
 		#print(pre.toSmallDf(df).head())
 		#print(pre.toSmallDf2(df).head())
 		#print(pre.toSmallDf3(df).head())
