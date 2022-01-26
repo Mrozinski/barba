@@ -44,7 +44,7 @@ def readFile3(fileName):
 	start = time.time()
 	#df=dd.DataFrame()
 	try:
-		df= dd.read_csv(fileName, sep='\s+', header=None, encoding='utf8')
+		df= dd.read_csv(fileName)
 		end = time.time()
 		duration=round(end-start,2)
 	except:
