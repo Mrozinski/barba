@@ -45,7 +45,7 @@ def readFile3(fileName):
 	#df=dd.DataFrame()
 	print(fileName)
 	try:
-		df= dd.read_csv(fileName)
+		df= pd.read_csv(fileName)
 		end = time.time()
 		duration=round(end-start,2)
 	except:
