@@ -42,7 +42,7 @@ def readFile2(fileName):
 
 def readFile3(fileName):
 	start = time.time()
-	df=dd.DataFrame()
+	#df=dd.DataFrame()
 	try:
 		df= dd.read_csv(fileName, sep='\s+', header=None, encoding='utf8')
 		end = time.time()
