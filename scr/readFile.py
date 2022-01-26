@@ -2,8 +2,7 @@ import pandas as pd
 import numpy as np
 import time
 import scr.logs as logs
-import dask as dd
-import dask.bag as db
+from dask import dataframe as ddf
 
 def readFile(fileName):
 	start = time.time()
@@ -46,7 +45,7 @@ def readFile3(fileName):
 	#df=dd.DataFrame()
 	print(fileName)
 	try:
-		df= db.read_text(fileName).to_dataframe()
+		df= ddf.read_csv(fileName)
 		end = time.time()
 		duration=round(end-start,2)
 	except:
