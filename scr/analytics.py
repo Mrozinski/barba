@@ -5,5 +5,6 @@ import pandas as pd
 # w której będzie szukać duplikatów
 # zwraca ramkę danych zawierającą powtórzone wiersze 
 
+
 def checkForDups(df, col):
     return df[df.duplicated(subset=[col], keep=False)]
