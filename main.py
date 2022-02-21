@@ -9,7 +9,7 @@ import scr.readFile as rf
 def main():
 	logs.onStart()
 	for fileName in files.files:
-		df=rf.readFile1(fileName)
+		df=rf.readFile(fileName)
 		if len(df.index) == 0:
 			print('error')
 		else:
