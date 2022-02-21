@@ -7,6 +7,10 @@ import scr.logs as logs
 # wynikiem działania jest pełen numer oryginalny 
 # oraz jego składowe jako oddzielne kolumny
 
+def mergeDataFrame(df1, df2):
+
+	return 0
+
 def toSmallDf(df):
 	start = time.time()
 	dfTemp=pd.DataFrame(columns=['fullNumber', 'sex','country', 'id'])

@@ -16,6 +16,7 @@ logFile=files.logDir+files.logFile
 # jest składowe: 
 # files.logDir - oznacza katalog docelowy, zadeklarowana w pliku init/init.py
 # files.readFileReport - oznacza nazwę pliku, zadeklarowana w pliku init/init.py
+
 reportFile=files.reportDir+files.readFileReport
 
 def writeToLogFile(msg):
