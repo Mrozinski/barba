@@ -21,7 +21,7 @@ def main():
 			dfList.append(df)
 			print(an.checkForDups(df,'id'))
 
-	an.compare2df(dfList[0], dfList[1], 'id')
+	print(an.compare2df(dfList[0], dfList[1], 'id'))
 	logs.onExit()
 	return 0
 
