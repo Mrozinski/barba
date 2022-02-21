@@ -19,7 +19,7 @@ def main():
 			#print(df.head())
 			df =pre.toSmallDf(df)
 			dfList.append(df)
-			print(an.checkForDups(df))
+			print(an.checkForDups(df,'id'))
 	logs.onExit()
 	return 0
 
