@@ -5,8 +5,10 @@ import init.init as files
 import scr.logs as logs
 import scr.preProcessing as pre
 import scr.readFile as rf
+import scr.analytics as an
 
 def main():
+	dfList=[]
 	logs.onStart()
 	for fileName in files.files:
 		df=rf.readFile(fileName)
@@ -14,11 +16,10 @@ def main():
 			print('error')
 		else:
 			print(fileName)
-			print(df.head())
-			print(pre.toSmallDf(df).head())
-			#print(pre.toSmallDf2(df).head())
-			#print(pre.toSmallDf3(df).head())
-			#print(pre.toSmallDf3(df).head())
+			#print(df.head())
+			df =pre.toSmallDf(df)
+			dfList.append(df)
+			print(an.checkForDups(df))
 	logs.onExit()
 	return 0
 
