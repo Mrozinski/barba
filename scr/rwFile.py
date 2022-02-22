@@ -14,11 +14,11 @@ def dirCheck(dirPath):
 def writeFile(df, fileName):
 	try:
 		dirCheck(files.workingDir)
+		df.to_csv(files.workingDir+file_name(fileName))
 	except:
 		dirCheck(files.workingDironError)
 		df.to_csv(files.workingDironError+file_name(fileName))
-	else:
-		df.to_csv(files.workingDir+file_name(fileName))
+	
 	return 0
 
 def readFile(fileName):
