@@ -21,6 +21,7 @@ workingDironError= "work2/"
 
 # Zmienna przechowująca nazwy plików wychodzących:
 outFile = "results"
+dupDir = "duplicates/"
 dupFile = "dups"
 
 # Zmienne przechowujące nazwy plików logów:
