@@ -1,3 +1,4 @@
+from numpy import outer
 import pandas as pd
 import time
 
@@ -7,9 +8,11 @@ import scr.logs as logs
 # wynikiem działania jest pełen numer oryginalny 
 # oraz jego składowe jako oddzielne kolumny
 
-def mergeDataFrame(df1, df2):
-
-	return 0
+def merge3DataFrame(df1, df2, df3, col):
+	return df1.merge(df2, on=col, how='outer').merge(df3, on=col, how='outer')
+	
+def merge2DataFrame(df1, df2, col):
+	return df1.merge(df2, on=col, how='outer')
 
 def toSmallDf(df):
 	start = time.time()
