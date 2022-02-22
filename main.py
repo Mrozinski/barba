@@ -19,7 +19,9 @@ def main():
 			#print(df.head())
 			df =pre.toSmallDf(df)
 			dfList.append(df)
-			print(an.checkForDups(df,'id').sort_values(by=['id']))
+			df1=an.checkForDups(df,'id').sort_values(by=['id'])
+			print(df1)
+			rw.writeFile(df1, fileName+'_'+files.dupFile)
 
 	print(an.compare2df(dfList[0], an.dropDups(dfList[1], 'id'), 'id'))
 	logs.onExit()
