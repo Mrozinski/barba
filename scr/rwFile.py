@@ -16,9 +16,9 @@ def writeFile(df, fileName):
 		dirCheck(files.workingDir)
 	except:
 		dirCheck(files.workingDironError)
-		df.to_csv(files.workingDironError+fileName)
+		df.to_csv(files.workingDironError+file_name(fileName))
 	else:
-		df.to_csv(files.workingDir+fileName)
+		df.to_csv(files.workingDir+file_name(fileName))
 	return 0
 
 def readFile(fileName):
