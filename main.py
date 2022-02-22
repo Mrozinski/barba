@@ -28,4 +28,5 @@ def main():
 	logs.onExit()
 	return 0
 
+# wykonanie programu
 main()
