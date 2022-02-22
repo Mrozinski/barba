@@ -16,7 +16,7 @@ def main():
 			print('error')
 		else:
 			print(fileName)
-			#print(df.head())
+			print(df.head())
 			df =pre.toSmallDf(df)
 			dfList.append(df)
 			df1=an.checkForDups(df,'id').sort_values(by=['id'])
@@ -24,7 +24,7 @@ def main():
 			rw.writeFile(df1, fileName+'_'+files.dupFile)
 
 	print(an.compare2df(dfList[0], an.dropDups(dfList[1], 'id'), 'id'))
-	print(pre.merge3DataFrame(dfList[3],dfList[4], dfList[5]).head())
+	print(pre.merge3DataFrame(dfList[3],dfList[4], dfList[5]).head(), 'id')
 	logs.onExit()
 	return 0
 
