@@ -3,6 +3,7 @@ from pathlib import Path
 
 # Własny plik ninicjujący zmienne konfiguracyjne 
 import init.init as files
+import scr.rwFile as rw
 
 # Zmienna logFile zapisuje informacje na temat miejsca przechowywania
 # plików z logami (historią działania programu)
@@ -20,46 +21,42 @@ logFile=files.logDir+files.logFile
 reportFile=files.reportDir+files.readFileReport
 
 def writeToLogFile(msg):
-	dirCheck(files.logDir)
+	rw.dirCheck(files.logDir)
 	f=open(logFile, "a")
 	time=datetime.now()
 	f.write(f'{time} {msg} \n')
 	f.close()
 
-def dirCheck(dirPath):
-	Path(dirPath).mkdir(parents=True, exist_ok=True)
-	return True
-
 def onStart(msg="launching the application"):
-	dirCheck(files.logDir)
+	rw.dirCheck(files.logDir)
 	f=open(logFile, "a")
 	time=datetime.now()
 	f.write(f'{time} {msg} \n')
 	f.close()
 
 def onFileOpenError(fileName, msg="Error opening the file"):
-	dirCheck(files.logDir)
+	rw.dirCheck(files.logDir)
 	f=open(logFile, "a")
 	time=datetime.now()
 	f.write(f'{time} {msg}: {fileName}\n')
 	f.close()
 
 def onExit(msg="Close the program"):
-	dirCheck(files.logDir)
+	rw.dirCheck(files.logDir)
 	f=open(logFile, "a")
 	time=datetime.now()
 	f.write(f'{time} {msg}\n')
 	f.close()
 
 def onFileOpenSuccess(fileName, msg="Opening the file successful"):
-		dirCheck(files.logDir)
+		rw.dirCheck(files.logDir)
 		f=open(logFile, "a")
 		time=datetime.now()
 		f.write(f'{time} {msg}: {fileName}\n')
 		f.close()
 
 def fileReadReport(filename, records=0, dTime=0, msg="file opening report:", msg2="records readed"):
-	dirCheck(files.reportDir)
+	rw.dirCheck(files.reportDir)
 	time=datetime.now().strftime(files.timeFormat)
 	f=open(files.reportDir+filename+"_"+time,"a")
 	f.write(f'{filename} {msg}\n')

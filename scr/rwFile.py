@@ -3,7 +3,23 @@ import pandas as pd
 import numpy as np
 import time
 import scr.logs as logs
+import init.init as files
+from pathlib import Path
 from dask import dataframe as ddf
+
+def dirCheck(dirPath):
+	Path(dirPath).mkdir(parents=True, exist_ok=True)
+	return True
+
+def writeFile(df, fileName):
+	try:
+		dirCheck(files.workingDir)
+	except:
+		dirCheck(files.workingDironError)
+		df.to_csv(files.workingDironError+fileName)
+	else:
+		df.to_csv(files.workingDir+fileName)
+	return 0
 
 def readFile(fileName):
 	start = time.time()
@@ -18,7 +34,7 @@ def readFile(fileName):
 		return df
 	else:
 		logs.onFileOpenSuccess(fileName); 
-		logs.fileReadReport(file_name(fileName)+'pandas', records=df.shape[0], dTime=duration)
+		logs.fileReadReport(file_name(fileName), records=df.shape[0], dTime=duration)
 		return df
 
 def file_name(fileName):
