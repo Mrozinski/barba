@@ -17,7 +17,7 @@ files2=["/home/IZ-PIB/barbara.kulesza/numerical.EBV/Step2_202108/EBVstdInfo.bull
 
 #floder roboczy
 workingDir = "work1/"
-workingDironError= "work2/"
+workingDironError= "BQwork2/"
 
 # Zmienna przechowująca nazwy plików wychodzących:
 outFile = "results"
