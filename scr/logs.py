@@ -1,6 +1,7 @@
 from datetime import datetime 
 from pathlib import Path
 
+
 # Własny plik ninicjujący zmienne konfiguracyjne 
 import init.init as files
 import scr.rwFile as rw
