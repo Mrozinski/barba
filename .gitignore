@@ -1,4 +1,7 @@
 __pycache__/
 log/
+work1/
+work2/
+rep/
 .*
 !.gitignore
